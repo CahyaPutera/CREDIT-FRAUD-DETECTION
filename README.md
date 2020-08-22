@@ -10,9 +10,9 @@ Proses Classification Machine Learning terhadap data transaction.csv.
 
 Notebook EDA berisi mengenai tahap eksplorasi data, namun juga akan mencakup preprocessing. Sehingga setiap feature dari data yang di eksplorasi akan bersih dari Null Values, serta sesuai dengan definisi dari tiap features. Tujuan eksplorasi data ini adalah untuk mengetahui lebih lanjut pola dari customer yang melakukan fraud. 
 
-Eksplorasi data di lakukan dalam beberapa tahap dan di lakukan berdasarkan kelompok data. Eksplorasi awal ke target features - isFraud, lalu eksplorasi ke kelompok numerical, categorical dan terakhir ekplorasi ke features datetime.
+Eksplorasi data di lakukan dalam beberapa tahap dan di lakukan berdasarkan kelompok data. Eksplorasi ke target features - isFraud, lalu eksplorasi ke kelompok numerical, categorical dan terakhir ekplorasi ke features datetime.
 
-Notebook selanjutnya dalam rangka proses Machine Learning, terdiri dari HYPERPARAMETER Tuning dan MACHINE LEARNING nya itu sendiri. Sehingga dalam prakteknya, proses ini hanya terfokus untuk membangun model prediksi. Model yang di gunakan dalam pengujian adalah LogisticRegression dan KNNeighbors. Pembuatan model di lakukan dengan melalui metode pipelining, sehingga hasilnya juga akan cenderung lebih baik. Pembuatan model juga melewati beberapa tahap feature engineering, dimana dalam tahap ini, data akan di lakukan uji normalitas dan outliers checking, feature selection, dan cross-validation. Dan karena data sangat imbalanced, maka di lakukan oversampling dengan metode SMOTE.
+Notebook selanjutnya dalam rangka rangkaian proses Machine Learning, terdiri dari HYPERPARAMETER Tuning dan MACHINE LEARNING nya itu sendiri. Sehingga dalam prakteknya, proses ini hanya terfokus untuk membangun model prediksi. Model yang di gunakan dalam pengujian adalah Logistic Regression dan K - Nearest Neighbors. Pembuatan model di lakukan dengan melalui metode pipelining, sehingga hasilnya juga akan cenderung lebih baik. Pembuatan model juga melewati beberapa tahap feature engineering, dimana data akan di lakukan uji normalitas dan outliers checking, feature selection, serta cross-validation. Karena data yang di gunakan sangat imbalanced, maka di lakukan oversampling dengan metode SMOTE.
 
 
 # FEATURE DESCRIPTION :
@@ -49,17 +49,17 @@ Notebook selanjutnya dalam rangka proses Machine Learning, terdiri dari HYPERPAR
 
 # SUMMARY - EDA 
 
-Walaupun lumayan sulit untuk mengetahui atau mendapatkan pola dari customer yang fraud, kita dapat ketahui bahwa ada sekitar 10.892 customer atau sekitar 2% dari total seluruh customer yang tercatat sebagai fraud. Kita juga mengetahui bahwa fraud terjadi hampir merata di setiap hari, setiap tahun jumlahnya terus meningkat. Dan jika kita lihat porsi peritungan per bulannya, kita akan temukan bahwa ada sedikit peningkatan pada bulan Maret dan Oktober walaupun tidak terlalu signifikan.
+Walaupun lumayan sulit untuk mendapatkan pola dari customer yang fraud, kita dapat ketahui bahwa ada sekitar 10.892 customer atau sekitar 2% dari total seluruh customer yang tercatat sebagai fraud. Kita juga mengetahui bahwa fraud terjadi hampir merata di setiap hari, setiap tahun jumlahnya terus meningkat. Dan jika kita lihat porsi peritungan per bulannya, kita akan temukan bahwa ada sedikit peningkatan pada bulan Maret dan Oktober walaupun tidak terlalu signifikan.
 
 Para customer yang fraud sering berbelanja pada merchant yang memiliki kategori online retail, fastfood atau makanan lainnya, sebagian besar dari merchant tersebut berasal dari US. Tipe transaksi yang banyak di lakukan pada adalah PURCHASE atau pembelian. Dan sebagian besar dari mereka yang fraud tidak membawa debit card, serta tidak memiliki kesamaan tanggal expiration yang tercatat dalam system dan yang di input.
 
-Melalui pairplot() terlihat memang terdapat features yang memiliki persebaran cukup berpola, walaupun pola persebarannya sulit di lihat, tetapi jika diperhatikan dengan seksama, kita akan menemukan pola persebaran dimana pada customer yang fraud kebanyakan sebaran credit limitnya masih di kisaran 20.000 dollar atau lebih rendah lagi, sementara mereka yang tidak fraud berada di kisaran 30.000 sampai 50.000 dollar. Terlihat juga pada customer yang fraud, mereka memiliki credit limit dan available money yang cenderung lebih sedikit dibandingkan mereka yang tidak fraud.
+Melalui pairplot pada feature numerical, terlihat memang terdapat features yang memiliki persebaran cukup berpola. Walaupun pola persebarannya sulit di lihat, tetapi jika diperhatikan dengan seksama, kita akan menemukan pola persebaran pada customer yang fraud. Kebanyakan sebaran credit limitnya masih di kisaran 20.000 dollar atau lebih rendah lagi, sementara mereka yang tidak fraud berada di kisaran 30.000 sampai 50.000 dollar. Terlihat juga pada customer yang fraud, mereka memiliki available money yang cenderung lebih sedikit dibandingkan mereka yang tidak fraud.
 
 # SUMMARY - MACHINE LEARNING
 
 Setelah dilakukan oversampling, memang jelas tampak bahwa model menjadi lebih baik daripada sebelumnya. Dan pada akhirnya, model Logistic Regression dengan scaling menggunakan Robust Scaler dan teknik oversampling dengan SMOTE menjadi model yang paling baik untuk digunakan dalam memprediksi dataset ini.
 
-Pada intinya, model ini memiliki 81% accuracy, serta 99% precision pada kategori yang tidak fraud. Terlebih lagi, model ini juga memiliki recall yang cukup tinggi pada kategori yang tidak fraud, model dapat memprediksi dengan benar sekitar 82% pada kategori ini, walaupun pada kategori yang fraud masih hanya sekitar 42%. Tetapi bagaimanapun juga versi model ini sudah lebih baik dan seimbang di bandingkan dengan versi sebelum di lakukan balancing.
+Pada intinya, model ini memiliki 81% accuracy, serta 99% precision pada kategori yang tidak fraud. Terlebih lagi, model ini juga memiliki recall yang cukup tinggi, yaitu 82% pada kategori yang tidak fraud, artinya model ini dapat memprediksi dengan benar sekitar 82% pada kategori tidak fraud. Walaupun pada kategori yang fraud masih hanya sekitar 42%, tetapi bagaimanapun juga hasil versi model ini sudah lebih baik dan seimbang di bandingkan dengan hasil versi model sebelum di lakukan balancing.
 
 # CHALLENGES 
 
