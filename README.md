@@ -64,6 +64,6 @@ Pada intinya, model ini memiliki 81% accuracy, serta 99% precision pada kategori
 # CHALLENGES 
 
 - Size dataset yang tergolong besar, lebih dari 600.000 data. Sehingga processing datanya memakan waktu yang cukup lama. 
-- Tuning Hyperparameter membutuhkan waktu sekitar 5 jam. Fitting model ke training data membutuhkan waktu sekitar 30 menit.
+- Tuning Hyperparameter membutuhkan waktu sekitar 5 sampai 6 jam. Fitting model ke training data membutuhkan waktu sekitar 30 sampai 40 menit.
 - Data sangat tidak seimbang (imbalanced) dengan jumlah rasio 98 : 2. Tentu saja ini menyulitkan dalam mencari pola dalam EDA dan modelling dalam MACHINE LEARNING.
 - Keterangan definisi dalam beberapa feature belum jelas.
